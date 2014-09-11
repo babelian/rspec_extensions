@@ -25,20 +25,20 @@ module Matchers
         message = @error
       end
 
-      # should_not have_error (slightly irregular, would be on(:base) if not for this)
+      # expect(object).to have_error (slightly irregular, would be on(:base) if not for this)
       if @attribute == :base && message.blank?
         target.errors.any?
       else
-        a = (target.errors[@attribute] || [])
+        array = (target.errors[@attribute] || [])
         # have_error.on(:something)
         if message.blank?
-          a.any?
+          array.any?
         # have_error(/something/).on(:something)
         elsif message.is_a?(Regexp)
-          a.any?{|r| r =~ message }
+          array.any?{|string| string =~ message }
         # have_error('something') # on base
         else
-          a.include?(message)
+          array.include?(message)
         end
       end
 
@@ -54,16 +54,27 @@ module Matchers
       "expected #{base_message}"
     end
 
-    def negative_failure_message
+    def failure_message_when_negated
       "did not expect #{base_message}"
     end
 
+    alias_method :negative_failure_message, :failure_message_when_negated
+
   end
 
+  # @example
+  #   expect(record).to have_error #=> any error on base
+  # @example
+  #   expect(record).to have_error(:blank).on(:name) #=> :symbol
+  # @example
+  #   expect(record).to have_error(/some message/)
+  # @example
+  #   expect(record).to have_error(:with_interpolations, :name => "bob")
   def have_error(error=nil, interpolations=nil)
     HaveError.new(error, interpolations)
   end
 
+  # calls {valid?} first to ensure errors are present
   def have_error!(error=nil, interpolations=nil)
     HaveError.new(error, interpolations, true)
   end
