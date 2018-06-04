@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION.yml",
+    "lib/rspec_extensions/alias_spec.rb",
     "lib/rspec_extensions/matchers/have_error.rb",
     "rspec_extensions.gemspec"
   ]
