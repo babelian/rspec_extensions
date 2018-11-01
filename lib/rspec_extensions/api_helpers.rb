@@ -47,7 +47,7 @@ module APIHelpers
     keys = keys.to_s.split('.') unless keys.is_a?(Array)
 
     keys.each do |seg|
-      key, hash_key, is_array, array_index = seg.match(/([a-z_]*)(\[([\-\d]*)\]){0,1}/).to_a
+      key, hash_key, is_array, array_index = seg.match(/([a-z_0-9]*)(\[([\-\d]*)\]){0,1}/).to_a
       # puts [json, seg, key, hash_key, is_array, array_index].inspect
       fail "#{keys.join('.')}: #{key} not found" unless json
       begin
