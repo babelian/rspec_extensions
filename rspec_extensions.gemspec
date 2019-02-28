@@ -7,33 +7,18 @@
 Gem::Specification.new do |s|
   s.name = 'rspec_extensions'.freeze
   s.version = '1.2.0'
-
-  s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
-  s.require_paths = ["lib".freeze]
-  s.authors = ["Zachary Powell".freeze]
-  s.date = "2019-02-28"
-  s.email = "zach@babelian.net".freeze
+  s.require_paths = ['lib'.freeze]
+  s.authors = ['Zachary Powell'.freeze]
+  s.date = '2019-02-28'
+  s.email = 'zach@babelian.net'.freeze
   s.extra_rdoc_files = [
-    "LICENSE",
-    "README.md"
+    'LICENSE',
+    'README.md'
   ]
-  s.files = [
-    "LICENSE",
-    "README.md",
-    "Rakefile",
-    "VERSION.yml",
-    "lib/rspec_extensions.rb",
-    "lib/rspec_extensions/api_helpers.rb",
-    "lib/rspec_extensions/contexts/time_contexts.rb",
-    "lib/rspec_extensions/faker_helpers.rb",
-    "lib/rspec_extensions/formatters/suite_formatter.rb",
-    "lib/rspec_extensions/matchers/have_error.rb",
-    "lib/rspec_extensions/spec_helper.rb",
-    "rspec_extensions.gemspec"
-  ]
-  s.homepage = "http://github.com/babelian/rspec_extensions".freeze
-  s.rubygems_version = "3.0.1".freeze
-  s.summary = "Extensions for RSpec".freeze
+  s.files = Dir.glob('{lib}/**/*')
+  s.homepage = 'http://github.com/babelian/rspec_extensions'.freeze
+  s.rubygems_version = '3.0.1'.freeze
+  s.summary = 'Extensions for RSpec'.freeze
 
   s.add_development_dependency 'bump'
   s.add_development_dependency 'rspec', '3.0.0'
