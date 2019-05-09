@@ -14,6 +14,5 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.6.0'
   s.rubygems_version = '3.0.1'
 
-  s.add_development_dependency 'bump'
   s.add_development_dependency 'rspec', '3.8.0'
 end

@@ -3,12 +3,12 @@ FROM ruby:2.6.0-alpine
 RUN apk add --update \
     build-base \
     ruby-dev \
-    git
+    git \
+    && gem install bump
 
 RUN mkdir -p /app
 WORKDIR /app
-COPY Gemfile /app/Gemfile
-COPY Gemfile.lock /app/Gemfile.lock
+COPY Gemfile Gemfile.lock *.gemspec /app/
 RUN bundle install
 
 COPY . /app
