@@ -1,18 +1,9 @@
-FROM ruby:2.5.3-alpine
+FROM ruby:2.6.0-alpine
 
-# For Nokogiri
 RUN apk add --update \
     build-base \
     ruby-dev \
-    bash \
-    git \
-    less \
-    nano
-
-
-#
-# Gems
-#
+    git
 
 RUN mkdir -p /app
 WORKDIR /app
@@ -21,3 +12,5 @@ COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 
 COPY . /app
+
+CMD rake spec
