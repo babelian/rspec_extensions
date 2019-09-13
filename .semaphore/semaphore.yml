@@ -1,11 +1,11 @@
 version: v1.0
-name: ruby_extensions
+name: rspec_extensions
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: ruby_extensions
+  - name: rspec_extensions
     task:
       prologue:
         commands:
