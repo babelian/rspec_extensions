@@ -1,0 +1,17 @@
+version: v1.0
+name: ruby_extensions
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: ruby_extensions
+    task:
+      prologue:
+        commands:
+          - checkout
+      jobs:
+        - name: rspec
+          commands:
+            - docker-compose build
+            - docker-compose run app
