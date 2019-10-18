@@ -8,6 +8,7 @@ RUN apk add --update \
 
 RUN mkdir -p /app
 WORKDIR /app
+COPY lib/rspec_extensions/version.rb /app/lib/rspec_extensions/version.rb
 COPY Gemfile Gemfile.lock *.gemspec /app/
 RUN bundle install
 

@@ -1,11 +1,15 @@
-def fake_email
-  Faker::Internet.email
-end
+module RspecExtensions
+  module Faker
+    def fake_email
+      Faker::Internet.email
+    end
 
-def fake_test_email
-  Faker::Internet.user_name + '@test.com'
-end
+    def fake_test_email
+      Faker::Internet.user_name + '@test.com'
+    end
 
-def fake_password
-  'password'
+    def fake_password
+      'password'
+    end
+  end
 end
