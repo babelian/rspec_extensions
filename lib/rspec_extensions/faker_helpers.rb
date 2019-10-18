@@ -1,5 +1,7 @@
+require 'faker'
+
 module RspecExtensions
-  module Faker
+  module FakerHelpers
     def fake_email
       Faker::Internet.email
     end
